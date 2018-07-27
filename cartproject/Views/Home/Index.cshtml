@@ -1,0 +1,76 @@
+﻿@model IEnumerable<cartproject.Models.product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>商品列表</h2>
+
+<p>
+    @Html.ActionLink("增加新商品", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            商品編號
+        </th>
+        <th>
+            商品名稱
+        </th>
+        <th>
+            商品頁面標題
+        </th>
+        <th>
+            商品規格
+        </th>
+        <th>
+            商品單價
+        </th>
+        <th>
+            商品介紹
+        </th>
+        <th>
+            商品縮圖
+        </th>
+        <th>
+            商品圖片
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_spec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_description)
+        </td>
+        <td>
+            <img src="~/images/@item.product_thumb" width="32" />
+        </td>
+        <td>
+            <img src="~/images/@item.product_image" width="64" />
+        </td>
+        <td>
+            @Html.ActionLink("修改", "Edit", new { id = item.id }) |
+            @Html.ActionLink("查看", "ViewProduct", new { id = item.id }) |
+            @Html.ActionLink("刪除", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
