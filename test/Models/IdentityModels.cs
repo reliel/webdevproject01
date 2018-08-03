@@ -34,6 +34,6 @@ namespace test.Models
             return new ApplicationDbContext();
         }
 
-        
+      //  public System.Data.Entity.DbSet<test.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

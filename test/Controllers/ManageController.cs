@@ -80,7 +80,7 @@ namespace test.Controllers
 
                 ViewBag.displayMenu = "No";
 
-                var result = User.Identity.GetUserName();
+                var result = user.Name;
 
                 if (result == "admin@gmail.com")
                 {

@@ -13,52 +13,40 @@ namespace test
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
             createRolesandUsers();
+            ConfigureAuth(app);
+            
         }
-
-
 
         private void createRolesandUsers()
         {
             ApplicationDbContext context = new ApplicationDbContext();
-            const string defaultRole = "Admin";
-            const string defaultUser = "Customer";
 
-            // This check for the role before attempting to add it.
-            if (!context.Roles.Any(r => r.Name == defaultRole))
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+
+            // In Startup iam creating first Admin Role and creating a default Admin User     
+            if (!context.Users.Any(u =>u.UserName == "admin@gmail.com") )
             {
-                context.Roles.Add(new IdentityRole(defaultRole));
-                context.SaveChanges();
-            }
+                //Here we create a Admin super user who will maintain the website                   
 
-            // This check for the user before adding them.
-            if (!context.Users.Any(u => u.UserName == defaultUser))
-            {
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-
-                //create admin account
-                var user = new ApplicationUser ();
+                var user = new ApplicationUser();
                 user.UserName = "admin@gmail.com";
-                user.CustomerName = "Producer";
                 user.Email = "admin@gmail.com";
+                user.CustomerName = "Admin";
                 user.PhoneNumber = "0921243952";
-                user.Address = "agri.tw";
-
-                manager.Create(user, "1qaz@WSX");
-
-                manager.AddToRole(user.Id, defaultRole);
+                user.Address = "webcity107a";
+                UserManager.Create(user, "1qaz@WSX");
+                UserManager.AddToRole(user.Id, "1");
+ 
+                
             }
-            else
-            {
-                // Just for good measure, this adds the user to the role if they already
-                // existed and just weren't in the role.
-                var user = context.Users.Single(u => u.UserName.Equals(defaultUser, StringComparison.CurrentCultureIgnoreCase));
-                var store = new UserStore<ApplicationUser>(context);
-                var manager = new UserManager<ApplicationUser>(store);
-                manager.AddToRole(user.Id, defaultRole);
-            }
+
+            
+
+            
         }
+
     }
 }
