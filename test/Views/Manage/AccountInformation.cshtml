@@ -1,0 +1,65 @@
+﻿@model IEnumerable<test.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "AccountInformation";
+}
+
+<h2>帳號資料</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+
+            電子郵件
+        </th>
+
+        <th>
+            姓名
+        </th>
+
+        <th>
+            連絡電話
+        </th>
+
+
+        <th>
+            郵寄地址
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+
+            <td>
+                @Html.ActionLink("修改帳號資料", "ChangeAccountInformation", new { id = item.Id }) |
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("回前一頁", "Index", "Manage")

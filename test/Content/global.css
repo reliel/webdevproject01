@@ -1,0 +1,50 @@
+﻿body {
+    background: linear-gradient(to right, #ebedee, #f2f1f1, #fdfbfb);
+}
+
+.navabar{
+    background: linear-gradient(white, #ebedee, silver);
+    border-radius: 60px;
+    height: 80px;
+    border:groove groove groove double;
+    border-color: dimgrey silver #c0baba #b0aeae;
+    box-shadow: 2px 2px rgba(200, 200, 200, 0.5);
+    
+        
+}
+
+.navabar .navbar-brand{
+    padding-top:0;
+    
+}
+
+.navabar .navbar-brand .logo-name{
+    padding-top:30px;
+    
+}
+
+.navabar .icon-bar{
+    background-color:gray;
+}
+
+.navabar a{
+    color: #343434;
+}
+
+.navabar .navbar-nav{
+    padding-top:20px;
+    padding-bottom:10px;
+
+}
+
+.nav > li > a:hover {
+    background: linear-gradient(transparent, white, #ebedee, transparent);
+    color: #699f69;
+}
+
+.body-content {
+    margin-top: 100px;
+    background: linear-gradient(white, #ebedee, silver);
+    box-shadow: 2px 2px 4px rgba(150, 150, 150, 0.7);
+    border-radius: 5px;
+}
