@@ -7,7 +7,7 @@ using test.Models;
 
 namespace test.Controllers.extend
 {
-    
+    [Authorize]
     public class AdminAccController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
