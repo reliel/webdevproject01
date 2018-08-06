@@ -6,6 +6,7 @@
 
 <h2>Index</h2>
 
+
 <p>
     @Html.ActionLink("新增", "Create")
 </p>
@@ -20,59 +21,60 @@
         <th>
             電子郵件
         </th>
-        
+
         <th>
             連絡電話
         </th>
-        
+
         <th>
             郵寄地址
         </th>
-        
+
         <th>
             密碼Hash
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerName)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-
-
-
-        <td>
-            @Html.DisplayFor(modelItem => item.PasswordHash)
-        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
 
 
 
+            <td>
+                @Html.DisplayFor(modelItem => item.PasswordHash)
+            </td>
 
-        <td>
-            @Html.ActionLink("編輯", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+
+
+
+            <td>
+                @Html.ActionLink("編輯", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
 
