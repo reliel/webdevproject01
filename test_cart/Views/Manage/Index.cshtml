@@ -1,0 +1,41 @@
+﻿@model test.Models.IndexViewModel
+@{
+    ViewBag.Title = "帳號管理";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@if (ViewBag.displayMenu == "Yes")
+{
+    <h1>Welcome Admin.</h1>
+
+    @Html.ActionLink("查看帳號明細", "Index", "AdminAcc")
+
+}
+else
+{
+    <h2>  Welcome <strong>@ViewBag.Name</strong> :) </h2>
+    <p class="text-success">@ViewBag.StatusMessage</p>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>密碼:</dt>
+            <dd>
+              
+                    @Html.ActionLink("更變密碼", "ChangePassword")
+               
+            </dd>
+
+            <dt>帳號資料:</dt>
+            <dd>
+
+                @Html.ActionLink("帳號資料", "AccountInformation")
+
+            </dd>
+        </dl>
+    </div>
+        }
+
+
+        
